@@ -5,7 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Student') }}</div>
+                <div class="card-header d-flex justify-content-between">
+                    <div class="">
+                        {{ __('Student') }}
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStudentModal">
+                            Add New Student
+                            </button>
+                        </div>
+                    </div>
 
                 <div class="card-body">
                     @if (session('status'))

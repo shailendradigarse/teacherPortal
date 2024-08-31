@@ -20,7 +20,7 @@ Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/shailendradigarse/teacherPortal.git
-cd your-repository
+cd teacherPortal
 ```
 ### 2. Install PHP Dependencies
 

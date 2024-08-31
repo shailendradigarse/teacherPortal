@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify({ name, subject, marks })
             }).then(response => response.json())
               .then(data => {
+                console.log(data, "data")
                   if (data.success) {
                       row.querySelector('.name-text').textContent = name;
                       row.querySelector('.subject-text').textContent = subject;
@@ -97,10 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                       showAlert('Student updated successfully', 'success');
                   } else {
-                      showAlert('Failed to update student');
+                      showAlert(data.error);
                   }
               }).catch(error => {
-                  showAlert('Error: ' + error.message);
+                  showAlert('Error: ' + error);
               });
         });
     });

@@ -5,10 +5,22 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Student;
+use App\Models\User;
 
 class StudentControllerTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        
+        // Create and authenticate a user
+        $this->user = User::factory()->create();
+        $this->actingAs($this->user);
+    }
 
     public function testStoreNewStudent()
     {
@@ -28,6 +40,7 @@ class StudentControllerTest extends TestCase
         ]);
     }
 
+
     public function testUpdateExistingStudent()
     {
         $student = Student::create([
@@ -37,6 +50,8 @@ class StudentControllerTest extends TestCase
         ]);
 
         $response = $this->putJson("/students/{$student->id}", [
+            'name' => 'Jane Doe',
+            'subject' => 'Science',
             'marks' => 95
         ]);
 
