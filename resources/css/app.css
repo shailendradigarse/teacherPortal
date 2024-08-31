@@ -1,0 +1,8 @@
+#alertSuccess, #alertError {
+    z-index: 1051; /* Higher than the modal's z-index */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    /* Optional: Add some padding or margin */
+    padding: 10px;
+}
